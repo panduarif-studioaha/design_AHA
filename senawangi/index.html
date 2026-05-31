@@ -3,441 +3,858 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Senawangi – Sekretariat Nasional Pewayangan Indonesia</title>
-  <meta name="description" content="Senawangi adalah lembaga resmi pelestari seni pewayangan Indonesia, menjaga dan mengembangkan warisan budaya wayang Nusantara." />
+  <title>Senawangi — Sekretariat Nasional Pewayangan Indonesia</title>
+  <meta name="description" content="Senawangi adalah Sekretariat Nasional Pewayangan Indonesia, lembaga pelestarian dan pengembangan seni wayang Nusantara." />
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=DM+Sans:wght@200;400;500&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="grain">
 
-  <!-- NAV -->
-  <nav class="nav" id="nav">
-    <div class="nav__inner">
+  <!-- ===== PRELOADER ===== -->
+  <div id="preloader">
+    <div class="preloader__inner">
+      <svg class="preloader__icon" viewBox="0 0 120 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="pl-path" d="M60 10 L45 35 L30 20 L40 45 L20 38 L38 58 L60 48 L82 58 L100 38 L80 45 L90 20 L75 35 Z" stroke="#BF9B45" stroke-width="1.5" fill="none"/>
+        <ellipse class="pl-path" cx="60" cy="78" rx="18" ry="22" stroke="#BF9B45" stroke-width="1.5" fill="none"/>
+        <path class="pl-path" d="M60 70 L70 78 L60 88" stroke="#BF9B45" stroke-width="1.2" fill="none"/>
+        <ellipse class="pl-path" cx="50" cy="72" rx="3" ry="2" stroke="#BF9B45" stroke-width="1" fill="none"/>
+        <rect class="pl-path" x="53" y="100" width="14" height="14" stroke="#BF9B45" stroke-width="1.2" fill="none"/>
+        <path class="pl-path" d="M38 114 Q60 108 82 114 L85 152 Q60 158 35 152 Z" stroke="#BF9B45" stroke-width="1.5" fill="none"/>
+        <line class="pl-path" x1="60" y1="152" x2="60" y2="175" stroke="#BF9B45" stroke-width="2"/>
+        <line class="pl-path" x1="50" y1="160" x2="20" y2="175" stroke="#BF9B45" stroke-width="1.5"/>
+        <line class="pl-path" x1="70" y1="160" x2="100" y2="175" stroke="#BF9B45" stroke-width="1.5"/>
+      </svg>
+      <div class="preloader__bar-wrap">
+        <div class="preloader__bar" id="preloaderBar"></div>
+      </div>
+      <p class="preloader__label">Memuat Warisan Budaya...</p>
+    </div>
+  </div>
+
+  <!-- ===== CURSOR ===== -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" id="mainNav">
+    <div class="nav__inner container">
       <a href="#" class="nav__logo">
-        <span class="nav__logo-mark">✦</span>
-        <span>Senawangi</span>
+        <svg class="nav__logo-icon" viewBox="0 0 40 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 4 L14 14 L8 8 L13 18 L4 15 L12 22 L20 18 L28 22 L36 15 L27 18 L32 8 L26 14 Z" stroke="#BF9B45" stroke-width="1.2" fill="none"/>
+          <ellipse cx="20" cy="30" rx="7" ry="9" stroke="#BF9B45" stroke-width="1.2" fill="none"/>
+          <path d="M20 28 L24 31 L20 35" stroke="#BF9B45" stroke-width="1" fill="none"/>
+          <rect x="17" y="39" width="6" height="6" stroke="#BF9B45" stroke-width="1" fill="none"/>
+          <path d="M12 45 Q20 43 28 45 L29 55 Q20 57 11 55 Z" stroke="#BF9B45" stroke-width="1.2" fill="none"/>
+          <line x1="20" y1="55" x2="20" y2="60" stroke="#BF9B45" stroke-width="1.5"/>
+        </svg>
+        <span class="nav__logo-text">Senawangi</span>
       </a>
-      <ul class="nav__links">
-        <li><a href="#tentang">Tentang</a></li>
-        <li><a href="#program">Program</a></li>
-        <li><a href="#galeri">Galeri</a></li>
-        <li><a href="#berita">Berita</a></li>
-        <li><a href="#kontak" class="nav__cta">Hubungi Kami</a></li>
+
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#tentang" class="nav__link">Tentang</a></li>
+        <li><a href="#program" class="nav__link">Program</a></li>
+        <li><a href="#galeri" class="nav__link">Galeri</a></li>
+        <li><a href="#berita" class="nav__link">Berita</a></li>
+        <li><a href="#kontak" class="nav__link nav__link--cta magnetic">Hubungi Kami</a></li>
       </ul>
-      <button class="nav__burger" id="burger" aria-label="Menu">
-        <span></span><span></span><span></span>
+
+      <button class="nav__burger" id="navBurger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
       </button>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero__bg">
-      <div class="hero__silhouette hero__silhouette--left"></div>
-      <div class="hero__silhouette hero__silhouette--right"></div>
-      <div class="hero__pattern"></div>
-    </div>
-    <div class="hero__content">
-      <p class="hero__eyebrow">Sekretariat Nasional Pewayangan Indonesia</p>
-      <h1 class="hero__title">Menjaga Jiwa<br /><em>Wayang Nusantara</em></h1>
-      <p class="hero__sub">
-        Senawangi hadir sebagai garda terdepan pelestarian, pengembangan, dan
-        promosi seni pewayangan Indonesia — warisan budaya takbenda yang diakui
-        UNESCO sejak 2003.
-      </p>
-      <div class="hero__actions">
-        <a href="#program" class="btn btn--primary">Jelajahi Program</a>
-        <a href="#tentang" class="btn btn--ghost">Tentang Kami</a>
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <canvas id="heroCanvas"></canvas>
+
+    <div class="hero__content container">
+      <div class="hero__left">
+        <p class="hero__eyebrow" data-reveal>Sekretariat Nasional Pewayangan Indonesia</p>
+        <h1 class="hero__title">
+          <span class="hero__line">Penjaga</span>
+          <span class="hero__line hero__line--accent"><em>Jiwa</em> Wayang</span>
+          <span class="hero__line">Nusantara</span>
+        </h1>
+        <p class="hero__subtitle" data-reveal>Melestarikan, mengembangkan, dan memperkenalkan seni wayang kepada dunia sebagai warisan budaya tak benda yang hidup dan bermakna.</p>
+        <div class="hero__ctas" data-reveal>
+          <a href="#tentang" class="btn btn--primary magnetic">Kenali Kami</a>
+          <a href="#program" class="btn btn--ghost magnetic">Lihat Program</a>
+        </div>
+      </div>
+
+      <div class="hero__right" id="heroWayang">
+        <!-- Detailed Wayang Kulit SVG -->
+        <svg class="wayang-svg" viewBox="0 0 300 580" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ilustrasi Wayang Kulit">
+
+          <!-- HEADDRESS / CROWN TOP SPIRES -->
+          <path class="w-path" d="M150 8 L143 28" stroke="#BF9B45" stroke-width="1.2" opacity="0.8"/>
+          <path class="w-path" d="M150 8 L157 28" stroke="#BF9B45" stroke-width="1.2" opacity="0.8"/>
+          <path class="w-path" d="M143 28 L128 18 L136 40" stroke="#BF9B45" stroke-width="1.4" opacity="0.85"/>
+          <path class="w-path" d="M157 28 L172 18 L164 40" stroke="#BF9B45" stroke-width="1.4" opacity="0.85"/>
+          <!-- Crown base arch -->
+          <path class="w-path" d="M115 45 Q150 32 185 45" stroke="#BF9B45" stroke-width="1.5" opacity="0.9"/>
+          <!-- Crown decorative band -->
+          <path class="w-path" d="M112 52 L120 44 L150 40 L180 44 L188 52" stroke="#BF9B45" stroke-width="1.3" opacity="0.85"/>
+          <!-- Crown ornament left -->
+          <path class="w-path" d="M112 52 Q104 58 108 66 Q116 68 120 60" stroke="#BF9B45" stroke-width="1.2" opacity="0.8"/>
+          <!-- Crown ornament right -->
+          <path class="w-path" d="M188 52 Q196 58 192 66 Q184 68 180 60" stroke="#BF9B45" stroke-width="1.2" opacity="0.8"/>
+          <!-- Crown bottom detail -->
+          <path class="w-path" d="M110 68 Q150 62 190 68" stroke="#BF9B45" stroke-width="1.4" opacity="0.9"/>
+          <!-- Center crown jewel -->
+          <path class="w-path" d="M142 48 L150 42 L158 48 L154 56 L146 56 Z" stroke="#BF9B45" stroke-width="1.1" opacity="0.85"/>
+
+          <!-- FACE -->
+          <ellipse class="w-path" cx="150" cy="98" rx="30" ry="26" stroke="#BF9B45" stroke-width="1.6" opacity="0.9"/>
+          <path class="w-path" d="M122 88 Q150 82 178 88" stroke="#BF9B45" stroke-width="1.2" opacity="0.75"/>
+          <!-- Eye almond shape -->
+          <path class="w-path" d="M132 93 Q138 89 144 93 Q138 97 132 93 Z" stroke="#BF9B45" stroke-width="1.1" opacity="0.9"/>
+          <circle class="w-path" cx="138" cy="93" r="2.5" stroke="#BF9B45" stroke-width="1" opacity="0.9"/>
+          <path class="w-path" d="M129 87 Q138 84 145 87" stroke="#BF9B45" stroke-width="1.2" opacity="0.85"/>
+          <!-- Wayang-style pointed nose -->
+          <path class="w-path" d="M148 95 L165 104 L150 112" stroke="#BF9B45" stroke-width="1.3" opacity="0.9"/>
+          <line class="w-path" x1="148" y1="90" x2="148" y2="95" stroke="#BF9B45" stroke-width="1" opacity="0.75"/>
+          <!-- Lips -->
+          <path class="w-path" d="M140 114 Q150 118 160 114" stroke="#BF9B45" stroke-width="1.1" opacity="0.8"/>
+          <path class="w-path" d="M145 120 Q150 124 155 120" stroke="#BF9B45" stroke-width="1" opacity="0.7"/>
+          <!-- Ear right with ornament -->
+          <path class="w-path" d="M180 94 Q188 98 186 106 Q182 112 178 108" stroke="#BF9B45" stroke-width="1.2" opacity="0.8"/>
+          <path class="w-path" d="M186 100 L196 96 L194 108 L186 106" stroke="#BF9B45" stroke-width="1.1" opacity="0.75"/>
+
+          <!-- NECK -->
+          <rect class="w-path" x="142" y="124" width="16" height="18" stroke="#BF9B45" stroke-width="1.4" opacity="0.85"/>
+          <path class="w-path" d="M136 138 Q150 134 164 138" stroke="#BF9B45" stroke-width="1.2" opacity="0.8"/>
+
+          <!-- SHOULDERS / UPPER BODY -->
+          <path class="w-path" d="M120 142 Q136 138 150 140 Q164 138 180 142 L186 160 Q150 165 114 160 Z" stroke="#BF9B45" stroke-width="1.5" opacity="0.9"/>
+          <path class="w-path" d="M120 142 Q110 148 106 158 Q112 165 120 160" stroke="#BF9B45" stroke-width="1.3" opacity="0.8"/>
+          <path class="w-path" d="M180 142 Q190 148 194 158 Q188 165 180 160" stroke="#BF9B45" stroke-width="1.3" opacity="0.8"/>
+
+          <!-- TORSO / BODY -->
+          <path class="w-path" d="M114 160 Q150 155 186 160 L190 230 Q150 236 110 230 Z" stroke="#BF9B45" stroke-width="1.5" opacity="0.9"/>
+          <path class="w-path" d="M118 172 Q150 168 182 172" stroke="#BF9B45" stroke-width="1" opacity="0.65"/>
+          <path class="w-path" d="M116 186 Q150 182 184 186" stroke="#BF9B45" stroke-width="1" opacity="0.65"/>
+          <path class="w-path" d="M115 200 Q150 196 185 200" stroke="#BF9B45" stroke-width="1" opacity="0.65"/>
+          <path class="w-path" d="M144 168 L150 162 L156 168 L156 202 L150 208 L144 202 Z" stroke="#BF9B45" stroke-width="1.1" opacity="0.75"/>
+          <path class="w-path" d="M112 222 Q150 217 188 222 L190 232 Q150 237 110 232 Z" stroke="#BF9B45" stroke-width="1.4" opacity="0.85"/>
+          <rect class="w-path" x="143" y="218" width="14" height="10" stroke="#BF9B45" stroke-width="1.2" opacity="0.85"/>
+
+          <!-- LEFT ARM (long, flowing down-left) -->
+          <path class="w-path" d="M114 155 Q88 170 70 195 Q52 220 38 250 Q28 272 20 295" stroke="#BF9B45" stroke-width="1.4" opacity="0.85"/>
+          <path class="w-path" d="M70 195 Q60 210 52 228" stroke="#BF9B45" stroke-width="1.2" opacity="0.75"/>
+          <!-- Pointed fingers left -->
+          <path class="w-path" d="M20 295 L8 310" stroke="#BF9B45" stroke-width="1.1" opacity="0.8"/>
+          <path class="w-path" d="M20 295 L14 315" stroke="#BF9B45" stroke-width="1.1" opacity="0.8"/>
+          <path class="w-path" d="M20 295 L22 318" stroke="#BF9B45" stroke-width="1.1" opacity="0.8"/>
+          <path class="w-path" d="M46 260 Q36 266 32 278 Q38 284 48 278" stroke="#BF9B45" stroke-width="1.2" opacity="0.75"/>
+
+          <!-- RIGHT ARM (long, flowing down-right) -->
+          <path class="w-path" d="M186 155 Q212 170 230 195 Q248 220 262 250 Q272 272 280 295" stroke="#BF9B45" stroke-width="1.4" opacity="0.85"/>
+          <path class="w-path" d="M230 195 Q240 210 248 228" stroke="#BF9B45" stroke-width="1.2" opacity="0.75"/>
+          <!-- Pointed fingers right -->
+          <path class="w-path" d="M280 295 L292 310" stroke="#BF9B45" stroke-width="1.1" opacity="0.8"/>
+          <path class="w-path" d="M280 295 L286 315" stroke="#BF9B45" stroke-width="1.1" opacity="0.8"/>
+          <path class="w-path" d="M280 295 L278 318" stroke="#BF9B45" stroke-width="1.1" opacity="0.8"/>
+          <path class="w-path" d="M254 260 Q264 266 268 278 Q262 284 252 278" stroke="#BF9B45" stroke-width="1.2" opacity="0.75"/>
+
+          <!-- HIP / WAIST AREA -->
+          <path class="w-path" d="M110 232 Q150 228 190 232 L192 248 Q150 252 108 248 Z" stroke="#BF9B45" stroke-width="1.3" opacity="0.85"/>
+
+          <!-- SKIRT LAYERS -->
+          <path class="w-path" d="M108 248 Q150 243 192 248 L196 268 Q150 273 104 268 Z" stroke="#BF9B45" stroke-width="1.4" opacity="0.88"/>
+          <path class="w-path" d="M110 258 Q150 253 190 258" stroke="#BF9B45" stroke-width="0.9" opacity="0.6"/>
+          <path class="w-path" d="M104 268 Q150 262 196 268 L200 294 Q150 300 100 294 Z" stroke="#BF9B45" stroke-width="1.4" opacity="0.85"/>
+          <path class="w-path" d="M107 280 Q150 275 193 280" stroke="#BF9B45" stroke-width="0.9" opacity="0.6"/>
+          <path class="w-path" d="M100 294 Q150 288 200 294 L205 324 Q150 330 95 324 Z" stroke="#BF9B45" stroke-width="1.4" opacity="0.82"/>
+          <path class="w-path" d="M103 308 Q150 303 197 308" stroke="#BF9B45" stroke-width="0.9" opacity="0.58"/>
+          <path class="w-path" d="M95 324 Q150 318 205 324 L210 358 Q150 365 90 358 Z" stroke="#BF9B45" stroke-width="1.4" opacity="0.8"/>
+          <path class="w-path" d="M92 348 Q150 343 208 348" stroke="#BF9B45" stroke-width="1" opacity="0.6"/>
+
+          <!-- LEGS / FEET -->
+          <path class="w-path" d="M130 358 L125 392 Q122 400 128 404 Q136 406 138 398 L140 362" stroke="#BF9B45" stroke-width="1.3" opacity="0.82"/>
+          <path class="w-path" d="M170 358 L175 392 Q178 400 172 404 Q164 406 162 398 L160 362" stroke="#BF9B45" stroke-width="1.3" opacity="0.82"/>
+          <path class="w-path" d="M128 404 Q118 408 115 416 Q120 420 130 416" stroke="#BF9B45" stroke-width="1.1" opacity="0.75"/>
+          <path class="w-path" d="M172 404 Q182 408 185 416 Q180 420 170 416" stroke="#BF9B45" stroke-width="1.1" opacity="0.75"/>
+
+          <!-- MAIN ROD (gapit) -->
+          <line class="w-path" x1="150" y1="358" x2="150" y2="570" stroke="#BF9B45" stroke-width="2.2" opacity="0.9"/>
+          <rect class="w-path" x="145" y="480" width="10" height="40" stroke="#BF9B45" stroke-width="1.3" opacity="0.75"/>
+          <rect class="w-path" x="146" y="488" width="8" height="6" stroke="#BF9B45" stroke-width="1" opacity="0.65"/>
+          <rect class="w-path" x="146" y="500" width="8" height="6" stroke="#BF9B45" stroke-width="1" opacity="0.65"/>
+          <rect class="w-path" x="146" y="512" width="8" height="6" stroke="#BF9B45" stroke-width="1" opacity="0.65"/>
+
+          <!-- SIDE RODS -->
+          <line class="w-path" x1="130" y1="380" x2="60" y2="530" stroke="#BF9B45" stroke-width="1.5" opacity="0.75"/>
+          <line class="w-path" x1="170" y1="380" x2="240" y2="530" stroke="#BF9B45" stroke-width="1.5" opacity="0.75"/>
+
+          <!-- DECORATIVE GLOW HALO -->
+          <ellipse class="w-path" cx="150" cy="96" rx="44" ry="40" stroke="#BF9B45" stroke-width="0.6" opacity="0.3" stroke-dasharray="4 6"/>
+
+        </svg>
       </div>
     </div>
+
     <div class="hero__scroll">
-      <span>Gulir ke bawah</span>
       <div class="hero__scroll-line"></div>
+      <span class="hero__scroll-text">Scroll</span>
     </div>
   </section>
 
-  <!-- STATS -->
-  <section class="stats">
+  <!-- ===== MARQUEE ===== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <div class="marquee__content">
+        <span>Wayang Kulit</span><span class="marquee__sep">✦</span>
+        <span>Wayang Golek</span><span class="marquee__sep">✦</span>
+        <span>Wayang Beber</span><span class="marquee__sep">✦</span>
+        <span>Wayang Sasak</span><span class="marquee__sep">✦</span>
+        <span>Wayang Klitik</span><span class="marquee__sep">✦</span>
+        <span>Wayang Orang</span><span class="marquee__sep">✦</span>
+        <span>Wayang Topeng</span><span class="marquee__sep">✦</span>
+        <span>Wayang Wahyu</span><span class="marquee__sep">✦</span>
+      </div>
+      <div class="marquee__content" aria-hidden="true">
+        <span>Wayang Kulit</span><span class="marquee__sep">✦</span>
+        <span>Wayang Golek</span><span class="marquee__sep">✦</span>
+        <span>Wayang Beber</span><span class="marquee__sep">✦</span>
+        <span>Wayang Sasak</span><span class="marquee__sep">✦</span>
+        <span>Wayang Klitik</span><span class="marquee__sep">✦</span>
+        <span>Wayang Orang</span><span class="marquee__sep">✦</span>
+        <span>Wayang Topeng</span><span class="marquee__sep">✦</span>
+        <span>Wayang Wahyu</span><span class="marquee__sep">✦</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== STATS ===== -->
+  <section class="stats" id="stats">
     <div class="container">
       <div class="stats__grid">
-        <div class="stats__item">
-          <strong>1975</strong>
-          <span>Tahun Berdiri</span>
+        <div class="stats__item" data-reveal>
+          <p class="stats__number"><span data-count="47" data-suffix="+">0</span></p>
+          <p class="stats__label">Tahun Berdiri</p>
         </div>
-        <div class="stats__item">
-          <strong>34</strong>
-          <span>Provinsi Terwakili</span>
+        <div class="stats__divider"></div>
+        <div class="stats__item" data-reveal>
+          <p class="stats__number"><span data-count="34" data-suffix="">0</span></p>
+          <p class="stats__label">Provinsi Anggota</p>
         </div>
-        <div class="stats__item">
-          <strong>5.000+</strong>
-          <span>Dalang Terdaftar</span>
+        <div class="stats__divider"></div>
+        <div class="stats__item" data-reveal>
+          <p class="stats__number"><span data-count="1200" data-suffix="+">0</span></p>
+          <p class="stats__label">Dalang Terdaftar</p>
         </div>
-        <div class="stats__item">
-          <strong>UNESCO</strong>
-          <span>Warisan Budaya Dunia</span>
+        <div class="stats__divider"></div>
+        <div class="stats__item" data-reveal>
+          <p class="stats__number"><span data-count="8" data-suffix="">0</span></p>
+          <p class="stats__label">Jenis Wayang Binaan</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TENTANG -->
+  <!-- ===== TENTANG ===== -->
   <section class="tentang" id="tentang">
-    <div class="container tentang__inner">
-      <div class="tentang__visual">
-        <div class="tentang__frame">
-          <div class="tentang__ornament tentang__ornament--tl"></div>
-          <div class="tentang__ornament tentang__ornament--br"></div>
-          <div class="tentang__img-placeholder">
-            <svg viewBox="0 0 200 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- Simplified wayang silhouette -->
-              <ellipse cx="100" cy="40" rx="22" ry="28" fill="#8B4513" opacity="0.8"/>
-              <path d="M78 68 Q60 90 55 130 L145 130 Q140 90 122 68Z" fill="#8B4513" opacity="0.8"/>
-              <path d="M55 130 Q30 160 25 200 L70 200 Q75 165 100 155 Q125 165 130 200 L175 200 Q170 160 145 130Z" fill="#6B3410" opacity="0.8"/>
-              <line x1="100" y1="200" x2="100" y2="280" stroke="#8B4513" stroke-width="4"/>
-              <line x1="55" y1="130" x2="20" y2="180" stroke="#8B4513" stroke-width="3"/>
-              <line x1="145" y1="130" x2="180" y2="180" stroke="#8B4513" stroke-width="3"/>
-              <circle cx="100" cy="40" r="8" fill="#FFD700" opacity="0.6"/>
-            </svg>
+    <div class="container">
+      <div class="tentang__grid">
+        <div class="tentang__media">
+          <div class="tentang__img-wrap">
+            <img
+              class="tentang__img"
+              src="https://source.unsplash.com/800x1000/?shadow,puppet,indonesia"
+              alt="Seni Wayang Indonesia"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <div class="tentang__img-fallback" style="display:none;">
+              <svg viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                <rect width="400" height="500" fill="#1A0A02"/>
+                <ellipse cx="200" cy="160" rx="45" ry="55" stroke="#BF9B45" stroke-width="1.5" fill="none" opacity="0.7"/>
+                <path d="M200 16 L180 55 L155 35 L170 65 L140 58 L165 78 L200 65 L235 78 L260 58 L230 65 L245 35 L220 55 Z" stroke="#BF9B45" stroke-width="1.5" fill="none" opacity="0.8"/>
+                <path d="M200 215 L200 420" stroke="#BF9B45" stroke-width="2.5" opacity="0.7"/>
+                <path d="M180 340 L80 460" stroke="#BF9B45" stroke-width="1.5" opacity="0.6"/>
+                <path d="M220 340 L320 460" stroke="#BF9B45" stroke-width="1.5" opacity="0.6"/>
+                <path d="M160 215 Q200 205 240 215 L248 310 Q200 318 152 310 Z" stroke="#BF9B45" stroke-width="1.5" fill="none" opacity="0.7"/>
+                <text x="200" y="490" text-anchor="middle" font-family="Cormorant Garamond" font-size="14" fill="#BF9B45" opacity="0.5">Wayang Nusantara</text>
+              </svg>
+            </div>
+            <div class="tentang__img-overlay"></div>
+            <div class="tentang__img-label">
+              <span>Warisan Dunia UNESCO · 2003</span>
+            </div>
+          </div>
+
+          <div class="tentang__quote glass">
+            <p class="tentang__quote-text">"Wayang bukan sekadar pertunjukan — ia adalah cermin jiwa bangsa, filsafat hidup yang diwariskan dari generasi ke generasi."</p>
+            <cite class="tentang__quote-cite">— Ki Nartosabdho, Maestro Dalang</cite>
           </div>
         </div>
-      </div>
-      <div class="tentang__text">
-        <p class="section__label">Tentang Kami</p>
-        <h2 class="section__title">Penjaga Tradisi,<br />Pelopor Inovasi</h2>
-        <p>
-          Senawangi (Sekretariat Nasional Pewayangan Indonesia) adalah lembaga
-          resmi yang menaungi seluruh organisasi pewayangan di Indonesia. Didirikan
-          pada tahun 1975, Senawangi berperan sebagai koordinator, fasilitator, dan
-          advokat bagi para dalang, seniman, dan pecinta wayang di seluruh Nusantara.
-        </p>
-        <p>
-          Kami percaya bahwa wayang bukan sekadar pertunjukan — ia adalah cermin
-          filsafat, nilai moral, dan identitas bangsa yang harus terus hidup dan
-          relevan di tengah arus modernisasi.
-        </p>
-        <div class="tentang__values">
-          <div class="tentang__value">
-            <span class="tentang__value-icon">🎭</span>
-            <div>
-              <strong>Pelestarian</strong>
-              <p>Mendokumentasikan dan menjaga keaslian tradisi pewayangan</p>
+
+        <div class="tentang__content">
+          <p class="label" data-reveal>Tentang Kami</p>
+          <h2 class="tentang__title" data-reveal>Rumah Bagi <em>Semua</em><br/>Seni Wayang</h2>
+          <p class="tentang__body" data-reveal>Senawangi didirikan pada tahun 1975 sebagai wadah nasional bagi seluruh insan pewayangan Indonesia. Kami hadir untuk menjembatani tradisi dan modernitas, memastikan bahwa seni wayang tetap hidup, relevan, dan dicintai oleh generasi masa kini.</p>
+          <p class="tentang__body" data-reveal>Dari Sabang sampai Merauke, kami menghimpun para dalang, seniman, pengrajin, dan pecinta wayang dalam satu keluarga besar yang berdedikasi pada kelestarian budaya adiluhung Nusantara.</p>
+
+          <div class="tentang__values">
+            <div class="tentang__value" data-reveal>
+              <span class="tentang__value-num">01</span>
+              <div>
+                <h4 class="tentang__value-title">Pelestarian</h4>
+                <p class="tentang__value-desc">Mendokumentasikan dan menjaga warisan pertunjukan wayang di seluruh Nusantara.</p>
+              </div>
+            </div>
+            <div class="tentang__value" data-reveal>
+              <span class="tentang__value-num">02</span>
+              <div>
+                <h4 class="tentang__value-title">Pengembangan</h4>
+                <p class="tentang__value-desc">Mendorong inovasi kreatif yang mempertahankan esensi filosofi wayang.</p>
+              </div>
+            </div>
+            <div class="tentang__value" data-reveal>
+              <span class="tentang__value-num">03</span>
+              <div>
+                <h4 class="tentang__value-title">Penyebaran</h4>
+                <p class="tentang__value-desc">Memperkenalkan wayang kepada khalayak global sebagai duta budaya Indonesia.</p>
+              </div>
             </div>
           </div>
-          <div class="tentang__value">
-            <span class="tentang__value-icon">🌱</span>
-            <div>
-              <strong>Regenerasi</strong>
-              <p>Membina dalang muda dan generasi penerus seni wayang</p>
-            </div>
-          </div>
-          <div class="tentang__value">
-            <span class="tentang__value-icon">🌏</span>
-            <div>
-              <strong>Diplomasi Budaya</strong>
-              <p>Memperkenalkan wayang ke panggung internasional</p>
-            </div>
-          </div>
+
+          <a href="#program" class="btn btn--primary magnetic" data-reveal>Lihat Program Kami</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROGRAM -->
+  <!-- ===== PROGRAM ===== -->
   <section class="program" id="program">
     <div class="container">
-      <div class="section__header">
-        <p class="section__label">Program Unggulan</p>
-        <h2 class="section__title">Apa yang Kami Lakukan</h2>
-        <p class="section__desc">
-          Beragam program dirancang untuk memperkuat ekosistem pewayangan Indonesia
-          dari hulu ke hilir.
-        </p>
+      <div class="program__header">
+        <div class="program__header-left">
+          <p class="label label--gold" data-reveal>Program Kegiatan</p>
+          <h2 class="program__title" data-reveal>Yang Kami <em>Lakukan</em></h2>
+        </div>
+        <div class="program__header-right" data-reveal>
+          <p class="program__desc">Berbagai program dirancang untuk merawat, mengembangkan, dan memperkenalkan wayang kepada generasi penerus dan dunia internasional.</p>
+        </div>
       </div>
+
       <div class="program__grid">
-        <div class="program__card program__card--featured">
-          <div class="program__card-icon">📜</div>
-          <h3>Sertifikasi Dalang</h3>
-          <p>
-            Program sertifikasi nasional bagi para dalang guna menjamin standar
-            kualitas dan kompetensi dalam seni pewayangan di seluruh Indonesia.
-          </p>
-          <a href="#" class="program__link">Pelajari lebih →</a>
-        </div>
-        <div class="program__card">
-          <div class="program__card-icon">🎓</div>
-          <h3>Sekolah Dalang</h3>
-          <p>
-            Pendidikan formal pewayangan bagi generasi muda melalui kurikulum
-            terstandar yang memadukan tradisi dan kreativitas kontemporer.
-          </p>
-          <a href="#" class="program__link">Pelajari lebih →</a>
-        </div>
-        <div class="program__card">
-          <div class="program__card-icon">🎪</div>
-          <h3>Festival Wayang Nusantara</h3>
-          <p>
-            Perhelatan tahunan yang mempertemukan dalang dari seluruh provinsi
-            untuk berkolaborasi dan berkompetisi secara sehat.
-          </p>
-          <a href="#" class="program__link">Pelajari lebih →</a>
-        </div>
-        <div class="program__card">
-          <div class="program__card-icon">📚</div>
-          <h3>Digitalisasi Arsip</h3>
-          <p>
-            Proyek dokumentasi digital ribuan naskah lakon, rekaman pertunjukan,
-            dan artefak pewayangan untuk generasi mendatang.
-          </p>
-          <a href="#" class="program__link">Pelajari lebih →</a>
-        </div>
-        <div class="program__card">
-          <div class="program__card-icon">✈️</div>
-          <h3>Misi Budaya Luar Negeri</h3>
-          <p>
-            Mengirimkan delegasi dalang ke berbagai negara untuk memperkenalkan
-            kekayaan seni wayang Indonesia di forum internasional.
-          </p>
-          <a href="#" class="program__link">Pelajari lebih →</a>
-        </div>
-        <div class="program__card">
-          <div class="program__card-icon">🤝</div>
-          <h3>Kemitraan Komunitas</h3>
-          <p>
-            Membangun jaringan komunitas wayang lokal di seluruh nusantara melalui
-            program pemberdayaan dan pendampingan berkelanjutan.
-          </p>
-          <a href="#" class="program__link">Pelajari lebih →</a>
-        </div>
+        <article class="program__card magnetic" data-reveal>
+          <span class="program__card-num">01</span>
+          <div class="program__card-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="#BF9B45" stroke-width="1.5">
+              <circle cx="24" cy="24" r="20"/>
+              <path d="M24 8 L20 18 L10 18 L18 24 L15 34 L24 28 L33 34 L30 24 L38 18 L28 18 Z"/>
+            </svg>
+          </div>
+          <h3 class="program__card-title">Festival Wayang Nasional</h3>
+          <p class="program__card-desc">Pergelaran akbar tahunan menampilkan dalang terbaik dari seluruh penjuru Indonesia dalam satu panggung prestisius.</p>
+          <a href="#" class="program__card-link">Selengkapnya →</a>
+        </article>
+
+        <article class="program__card magnetic" data-reveal>
+          <span class="program__card-num">02</span>
+          <div class="program__card-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="#BF9B45" stroke-width="1.5">
+              <rect x="8" y="8" width="32" height="32" rx="4"/>
+              <path d="M16 20 L32 20 M16 28 L28 28"/>
+              <circle cx="36" cy="12" r="6" fill="#1A0A02" stroke="#BF9B45" stroke-width="1.5"/>
+              <path d="M33 12 L35 14 L39 10"/>
+            </svg>
+          </div>
+          <h3 class="program__card-title">Pendidikan & Pelatihan</h3>
+          <p class="program__card-desc">Program pelatihan dalang muda dan bengkel seni untuk meregenerasi seniman wayang di seluruh Indonesia.</p>
+          <a href="#" class="program__card-link">Selengkapnya →</a>
+        </article>
+
+        <article class="program__card magnetic" data-reveal>
+          <span class="program__card-num">03</span>
+          <div class="program__card-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="#BF9B45" stroke-width="1.5">
+              <path d="M24 4 L28 16 L40 16 L30 24 L34 36 L24 28 L14 36 L18 24 L8 16 L20 16 Z"/>
+              <circle cx="24" cy="24" r="6"/>
+            </svg>
+          </div>
+          <h3 class="program__card-title">Dokumentasi & Riset</h3>
+          <p class="program__card-desc">Penelitian mendalam dan pendokumentasian pertunjukan wayang sebagai arsip hidup budaya Nusantara.</p>
+          <a href="#" class="program__card-link">Selengkapnya →</a>
+        </article>
+
+        <article class="program__card magnetic" data-reveal>
+          <span class="program__card-num">04</span>
+          <div class="program__card-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="#BF9B45" stroke-width="1.5">
+              <circle cx="24" cy="16" r="8"/>
+              <path d="M8 40 C8 32 40 32 40 40"/>
+              <path d="M34 18 Q42 14 40 24 Q38 30 34 28"/>
+              <path d="M14 18 Q6 14 8 24 Q10 30 14 28"/>
+            </svg>
+          </div>
+          <h3 class="program__card-title">Diplomasi Budaya</h3>
+          <p class="program__card-desc">Pertunjukan wayang di berbagai negara sebagai representasi budaya Indonesia di panggung internasional.</p>
+          <a href="#" class="program__card-link">Selengkapnya →</a>
+        </article>
+
+        <article class="program__card magnetic" data-reveal>
+          <span class="program__card-num">05</span>
+          <div class="program__card-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="#BF9B45" stroke-width="1.5">
+              <rect x="6" y="14" width="36" height="26" rx="2"/>
+              <path d="M6 20 L42 20"/>
+              <path d="M16 8 L16 14 M32 8 L32 14"/>
+              <circle cx="16" cy="30" r="3"/>
+              <circle cx="24" cy="30" r="3"/>
+              <circle cx="32" cy="30" r="3"/>
+            </svg>
+          </div>
+          <h3 class="program__card-title">Kongres Pewayangan</h3>
+          <p class="program__card-desc">Forum nasional para pemangku kepentingan wayang untuk merumuskan kebijakan dan arah pelestarian wayang.</p>
+          <a href="#" class="program__card-link">Selengkapnya →</a>
+        </article>
+
+        <article class="program__card magnetic" data-reveal>
+          <span class="program__card-num">06</span>
+          <div class="program__card-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="#BF9B45" stroke-width="1.5">
+              <path d="M10 38 L10 20 L24 10 L38 20 L38 38 Z"/>
+              <path d="M18 38 L18 28 L30 28 L30 38"/>
+              <path d="M24 10 L24 6"/>
+              <circle cx="24" cy="4" r="2"/>
+            </svg>
+          </div>
+          <h3 class="program__card-title">Pusat Informasi Wayang</h3>
+          <p class="program__card-desc">Platform digital dan fisik sebagai referensi lengkap tentang sejarah, jenis, dan tokoh-tokoh wayang Indonesia.</p>
+          <a href="#" class="program__card-link">Selengkapnya →</a>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- GALERI -->
+  <!-- ===== GALERI ===== -->
   <section class="galeri" id="galeri">
-    <div class="container">
-      <div class="section__header">
-        <p class="section__label">Galeri</p>
-        <h2 class="section__title">Keindahan Wayang Nusantara</h2>
+    <div class="galeri__header container">
+      <p class="label" data-reveal>Galeri</p>
+      <h2 class="galeri__title" data-reveal>Keindahan <em>Visual</em> Wayang</h2>
+    </div>
+
+    <div class="galeri__scroll-wrap">
+      <div class="galeri__track" id="galeriTrack">
+
+        <div class="galeri__item">
+          <div class="galeri__item-inner">
+            <img class="galeri__img" src="https://source.unsplash.com/600x800/?wayang,shadow,puppet" alt="Wayang Kulit"
+              onerror="this.style.display='none'; this.parentElement.querySelector('.galeri__fallback').style.display='flex';"/>
+            <div class="galeri__fallback" style="display:none;">
+              <svg viewBox="0 0 300 400" fill="none" width="100%" height="100%">
+                <rect width="300" height="400" fill="#0F0602"/>
+                <ellipse cx="150" cy="130" rx="35" ry="42" stroke="#BF9B45" stroke-width="1.2" fill="none" opacity="0.8"/>
+                <path d="M150 12 L135 45 L115 30 L128 55 L102 48 L124 66 L150 55 L176 66 L198 48 L172 55 L185 30 L165 45 Z" stroke="#BF9B45" stroke-width="1.2" fill="none" opacity="0.85"/>
+                <path d="M115 172 Q150 165 185 172 L188 260 Q150 268 112 260 Z" stroke="#BF9B45" stroke-width="1.2" fill="none" opacity="0.8"/>
+                <path d="M150 260 L150 390" stroke="#BF9B45" stroke-width="2" opacity="0.7"/>
+              </svg>
+            </div>
+            <div class="galeri__overlay">
+              <h3 class="galeri__overlay-title">Wayang Kulit</h3>
+              <p class="galeri__overlay-region">Jawa Tengah</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="galeri__item galeri__item--art">
+          <div class="galeri__item-inner">
+            <svg class="galeri__svg-art" viewBox="0 0 300 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="300" height="480" fill="#1A0A02"/>
+              <circle cx="150" cy="80" r="35" stroke="#BF9B45" stroke-width="1.5" fill="none" opacity="0.9"/>
+              <path d="M150 20 L142 38 L128 28 L136 46 L118 42 L134 56 L150 48 L166 56 L182 42 L164 46 L172 28 L158 38 Z" stroke="#D4B568" stroke-width="1.3" fill="none"/>
+              <path d="M150 68 L162 76 L152 86" stroke="#BF9B45" stroke-width="1.2" fill="none"/>
+              <ellipse cx="140" cy="66" rx="5" ry="3" stroke="#BF9B45" stroke-width="1" fill="none"/>
+              <path d="M135 115 Q150 112 165 115 L168 170 Q150 174 132 170 Z" stroke="#BF9B45" stroke-width="1.4" fill="none" opacity="0.85"/>
+              <path d="M138 115 Q120 130 108 155 Q98 172 90 195" stroke="#BF9B45" stroke-width="1.3" fill="none" opacity="0.8"/>
+              <path d="M162 115 Q180 130 192 155 Q202 172 210 195" stroke="#BF9B45" stroke-width="1.3" fill="none" opacity="0.8"/>
+              <path d="M90 195 L78 210 M90 195 L84 215" stroke="#BF9B45" stroke-width="1" fill="none" opacity="0.8"/>
+              <path d="M210 195 L222 210 M210 195 L216 215" stroke="#BF9B45" stroke-width="1" fill="none" opacity="0.8"/>
+              <path d="M132 170 Q150 165 168 170 L172 210 Q150 216 128 210 Z" stroke="#BF9B45" stroke-width="1.3" fill="none" opacity="0.82"/>
+              <path d="M128 210 Q150 204 172 210 L176 240 Q150 246 124 240 Z" stroke="#BF9B45" stroke-width="1.3" fill="none" opacity="0.8"/>
+              <path d="M124 240 Q150 234 176 240 L180 275 Q150 282 120 275 Z" stroke="#BF9B45" stroke-width="1.3" fill="none" opacity="0.78"/>
+              <path d="M120 275 Q150 268 180 275 L184 315 Q150 322 116 315 Z" stroke="#BF9B45" stroke-width="1.3" fill="none" opacity="0.76"/>
+              <line x1="150" y1="315" x2="150" y2="475" stroke="#BF9B45" stroke-width="2" opacity="0.85"/>
+              <line x1="134" y1="330" x2="80" y2="455" stroke="#BF9B45" stroke-width="1.4" opacity="0.65"/>
+              <line x1="166" y1="330" x2="220" y2="455" stroke="#BF9B45" stroke-width="1.4" opacity="0.65"/>
+              <text x="150" y="465" text-anchor="middle" font-family="Cormorant Garamond" font-size="12" fill="#BF9B45" opacity="0.6">Wayang Golek</text>
+            </svg>
+            <div class="galeri__overlay">
+              <h3 class="galeri__overlay-title">Wayang Golek</h3>
+              <p class="galeri__overlay-region">Jawa Barat</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="galeri__item">
+          <div class="galeri__item-inner">
+            <img class="galeri__img" src="https://source.unsplash.com/600x800/?batik,java,culture" alt="Wayang Beber"
+              onerror="this.style.display='none'; this.parentElement.querySelector('.galeri__fallback').style.display='flex';"/>
+            <div class="galeri__fallback" style="display:none;">
+              <svg viewBox="0 0 300 400" fill="none" width="100%" height="100%">
+                <rect width="300" height="400" fill="#0F0602"/>
+                <rect x="40" y="30" width="220" height="340" stroke="#BF9B45" stroke-width="1.2" fill="none" opacity="0.5"/>
+                <path d="M60 80 Q150 60 240 80 Q220 200 150 220 Q80 200 60 80 Z" stroke="#BF9B45" stroke-width="1" fill="none" opacity="0.7"/>
+                <ellipse cx="150" cy="140" rx="25" ry="30" stroke="#BF9B45" stroke-width="1.2" fill="none" opacity="0.8"/>
+                <text x="150" y="390" text-anchor="middle" font-family="Cormorant Garamond" font-size="13" fill="#BF9B45" opacity="0.5">Wayang Beber</text>
+              </svg>
+            </div>
+            <div class="galeri__overlay">
+              <h3 class="galeri__overlay-title">Wayang Beber</h3>
+              <p class="galeri__overlay-region">Jawa Timur</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="galeri__item galeri__item--art">
+          <div class="galeri__item-inner">
+            <svg class="galeri__svg-art" viewBox="0 0 300 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="300" height="480" fill="#120804"/>
+              <ellipse cx="150" cy="90" rx="30" ry="38" stroke="#BF9B45" stroke-width="1.4" fill="none" opacity="0.9"/>
+              <path d="M150 24 Q130 50 110 42 Q125 58 120 68" stroke="#D4B568" stroke-width="1.2" fill="none"/>
+              <path d="M150 24 Q170 50 190 42 Q175 58 180 68" stroke="#D4B568" stroke-width="1.2" fill="none"/>
+              <path d="M144 128 Q150 124 156 128 L158 210 Q150 215 142 210 Z" stroke="#BF9B45" stroke-width="1.4" fill="none"/>
+              <path d="M144 140 Q120 148 100 135 Q82 122 72 108" stroke="#BF9B45" stroke-width="1.3" fill="none" opacity="0.85"/>
+              <path d="M72 108 L60 96 M72 108 L62 112" stroke="#BF9B45" stroke-width="1" fill="none"/>
+              <path d="M156 140 Q178 130 198 118 Q216 106 228 96" stroke="#BF9B45" stroke-width="1.3" fill="none" opacity="0.85"/>
+              <path d="M228 96 L240 84 M228 96 L238 100" stroke="#BF9B45" stroke-width="1" fill="none"/>
+              <path d="M142 210 Q136 240 128 265 Q122 285 120 308" stroke="#BF9B45" stroke-width="1.3" fill="none"/>
+              <path d="M158 210 Q164 240 172 265 Q178 285 180 308" stroke="#BF9B45" stroke-width="1.3" fill="none"/>
+              <path d="M138 210 Q150 205 162 210 L168 240 Q150 246 132 240 Z" stroke="#BF9B45" stroke-width="1.2" fill="none" opacity="0.75"/>
+              <path d="M130 240 Q150 234 170 240 L175 270 Q150 276 125 270 Z" stroke="#BF9B45" stroke-width="1.2" fill="none" opacity="0.72"/>
+              <text x="150" y="465" text-anchor="middle" font-family="Cormorant Garamond" font-size="12" fill="#BF9B45" opacity="0.6">Wayang Orang</text>
+            </svg>
+            <div class="galeri__overlay">
+              <h3 class="galeri__overlay-title">Wayang Orang</h3>
+              <p class="galeri__overlay-region">Yogyakarta</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="galeri__item">
+          <div class="galeri__item-inner">
+            <img class="galeri__img" src="https://source.unsplash.com/600x800/?indonesia,traditional,art" alt="Wayang Sasak"
+              onerror="this.style.display='none'; this.parentElement.querySelector('.galeri__fallback').style.display='flex';"/>
+            <div class="galeri__fallback" style="display:none;">
+              <svg viewBox="0 0 300 400" fill="none" width="100%" height="100%">
+                <rect width="300" height="400" fill="#0C0501"/>
+                <ellipse cx="150" cy="120" rx="38" ry="46" stroke="#BF9B45" stroke-width="1.3" fill="none" opacity="0.8"/>
+                <path d="M150 10 L140 35 L122 24 L132 44 L108 38 L128 54 L150 44 L172 54 L192 38 L168 44 L178 24 L160 35 Z" stroke="#BF9B45" stroke-width="1.3" fill="none" opacity="0.85"/>
+                <path d="M112 166 Q150 158 188 166 L192 280 Q150 290 108 280 Z" stroke="#BF9B45" stroke-width="1.3" fill="none" opacity="0.8"/>
+                <path d="M150 280 L150 395" stroke="#BF9B45" stroke-width="2" opacity="0.75"/>
+                <text x="150" y="390" text-anchor="middle" font-family="Cormorant Garamond" font-size="13" fill="#BF9B45" opacity="0.5">Wayang Sasak</text>
+              </svg>
+            </div>
+            <div class="galeri__overlay">
+              <h3 class="galeri__overlay-title">Wayang Sasak</h3>
+              <p class="galeri__overlay-region">Lombok, NTB</p>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div class="galeri__grid">
-        <div class="galeri__item galeri__item--large" style="--hue:25">
-          <div class="galeri__placeholder">
-            <span>Wayang Kulit</span>
-            <p>Jawa</p>
-          </div>
-        </div>
-        <div class="galeri__item" style="--hue:15">
-          <div class="galeri__placeholder">
-            <span>Wayang Golek</span>
-            <p>Sunda</p>
-          </div>
-        </div>
-        <div class="galeri__item" style="--hue:35">
-          <div class="galeri__placeholder">
-            <span>Wayang Beber</span>
-            <p>Jawa Timur</p>
-          </div>
-        </div>
-        <div class="galeri__item" style="--hue:10">
-          <div class="galeri__placeholder">
-            <span>Wayang Sasak</span>
-            <p>Lombok</p>
-          </div>
-        </div>
-        <div class="galeri__item galeri__item--medium" style="--hue:40">
-          <div class="galeri__placeholder">
-            <span>Wayang Klitik</span>
-            <p>Jawa Tengah</p>
-          </div>
-        </div>
-      </div>
+    </div>
+    <div class="galeri__hint container">
+      <span>← Geser untuk menjelajah →</span>
     </div>
   </section>
 
-  <!-- BERITA -->
+  <!-- ===== BERITA ===== -->
   <section class="berita" id="berita">
     <div class="container">
-      <div class="section__header">
-        <p class="section__label">Berita & Agenda</p>
-        <h2 class="section__title">Terkini dari Senawangi</h2>
+      <div class="berita__header">
+        <p class="label" data-reveal>Berita & Informasi</p>
+        <h2 class="berita__title" data-reveal>Kabar Terkini <em>Pewayangan</em></h2>
       </div>
+
       <div class="berita__grid">
-        <article class="berita__card berita__card--main">
-          <div class="berita__tag">Festival</div>
-          <h3>Festival Wayang Nusantara 2025 Resmi Dibuka di Yogyakarta</h3>
-          <p>
-            Ribuan penonton memadati Alun-alun Keraton Yogyakarta untuk menyaksikan
-            pembukaan festival tahunan yang menampilkan 150 dalang dari 34 provinsi.
-          </p>
-          <div class="berita__meta">
-            <time>28 Mei 2025</time>
-            <a href="#">Baca selengkapnya →</a>
+        <article class="berita__main" data-reveal>
+          <div class="berita__main-img-wrap">
+            <img class="berita__main-img" src="https://source.unsplash.com/900x600/?festival,java,culture" alt="Festival Wayang Nasional 2024"
+              onerror="this.style.display='none'; this.parentElement.querySelector('.berita__img-fallback').style.display='flex';"/>
+            <div class="berita__img-fallback" style="display:none;">
+              <svg viewBox="0 0 900 600" fill="none" width="100%" height="100%">
+                <rect width="900" height="600" fill="#1A0A02"/>
+                <text x="450" y="280" text-anchor="middle" font-family="Cormorant Garamond" font-size="48" fill="#BF9B45" opacity="0.3">Festival Wayang</text>
+                <text x="450" y="340" text-anchor="middle" font-family="Cormorant Garamond" font-size="24" fill="#BF9B45" opacity="0.2">Nasional 2024</text>
+              </svg>
+            </div>
+            <div class="berita__main-tag">Festival</div>
+          </div>
+          <div class="berita__main-content">
+            <div class="berita__meta">
+              <span class="berita__date">12 November 2024</span>
+              <span class="berita__cat">Festival</span>
+            </div>
+            <h3 class="berita__main-title">Festival Wayang Nasional 2024 Dihadiri Lebih dari 50 Ribu Penonton</h3>
+            <p class="berita__main-excerpt">Perhelatan tahunan Senawangi kembali mencatatkan rekor dengan kehadiran penonton yang melonjak drastis, menampilkan 120 dalang dari 30 provinsi selama lima hari berturut-turut di Kompleks Monas, Jakarta.</p>
+            <a href="#" class="btn btn--ghost btn--sm">Baca Selengkapnya</a>
           </div>
         </article>
-        <article class="berita__card">
-          <div class="berita__tag">Program</div>
-          <h3>Senawangi Luncurkan Platform Digital Arsip Wayang Indonesia</h3>
-          <p>Lebih dari 3.000 rekaman pertunjukan kini dapat diakses secara daring.</p>
-          <div class="berita__meta">
-            <time>15 Mei 2025</time>
-            <a href="#">Baca →</a>
-          </div>
-        </article>
-        <article class="berita__card">
-          <div class="berita__tag">Internasional</div>
-          <h3>Dalang Indonesia Tampil di Festival Budaya Paris 2025</h3>
-          <p>Misi budaya Senawangi sukses memperkenalkan wayang di hadapan ribuan pengunjung Eropa.</p>
-          <div class="berita__meta">
-            <time>3 Mei 2025</time>
-            <a href="#">Baca →</a>
-          </div>
-        </article>
-        <article class="berita__card">
-          <div class="berita__tag">Agenda</div>
-          <h3>Pelatihan Dalang Muda Batch 7 — Pendaftaran Dibuka</h3>
-          <p>Program 6 bulan intensif untuk calon dalang usia 15–25 tahun di seluruh Indonesia.</p>
-          <div class="berita__meta">
-            <time>20 April 2025</time>
-            <a href="#">Baca →</a>
-          </div>
-        </article>
+
+        <div class="berita__side">
+          <article class="berita__card" data-reveal>
+            <div class="berita__card-img-wrap">
+              <img src="https://source.unsplash.com/400x300/?puppet,indonesia,art" alt="Dalang Cilik"
+                onerror="this.onerror=null; this.style.background='#1A0A02';" />
+            </div>
+            <div class="berita__card-content">
+              <span class="berita__date">5 Oktober 2024</span>
+              <h4 class="berita__card-title">Program Dalang Cilik Lahirkan 200 Seniman Muda Berbakat</h4>
+              <a href="#" class="berita__card-link">Baca →</a>
+            </div>
+          </article>
+
+          <article class="berita__card" data-reveal>
+            <div class="berita__card-img-wrap">
+              <img src="https://source.unsplash.com/400x300/?museum,heritage,indonesia" alt="UNESCO"
+                onerror="this.onerror=null; this.style.background='#1A0A02';" />
+            </div>
+            <div class="berita__card-content">
+              <span class="berita__date">18 September 2024</span>
+              <h4 class="berita__card-title">Senawangi Wakili Indonesia di Sidang Umum UNESCO Paris</h4>
+              <a href="#" class="berita__card-link">Baca →</a>
+            </div>
+          </article>
+
+          <article class="berita__card" data-reveal>
+            <div class="berita__card-img-wrap">
+              <img src="https://source.unsplash.com/400x300/?indonesia,traditional,performance" alt="Pertunjukan"
+                onerror="this.onerror=null; this.style.background='#1A0A02';" />
+            </div>
+            <div class="berita__card-content">
+              <span class="berita__date">2 Agustus 2024</span>
+              <h4 class="berita__card-title">Kolaborasi Wayang dan Musik Kontemporer Jadi Sorotan Dunia</h4>
+              <a href="#" class="berita__card-link">Baca →</a>
+            </div>
+          </article>
+
+          <article class="berita__card" data-reveal>
+            <div class="berita__card-img-wrap">
+              <img src="https://source.unsplash.com/400x300/?craft,wood,indonesia" alt="Kerajinan"
+                onerror="this.onerror=null; this.style.background='#1A0A02';" />
+            </div>
+            <div class="berita__card-content">
+              <span class="berita__date">14 Juli 2024</span>
+              <h4 class="berita__card-title">Pameran Koleksi Wayang Kuno Dibuka di Museum Nasional Jakarta</h4>
+              <a href="#" class="berita__card-link">Baca →</a>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA BANNER -->
+  <!-- ===== CTA BANNER ===== -->
   <section class="cta-banner">
-    <div class="cta-banner__bg"></div>
-    <div class="container cta-banner__inner">
-      <h2>Bersama Melestarikan Warisan Leluhur</h2>
-      <p>
-        Dukung Senawangi dalam menjaga nyala seni pewayangan untuk generasi mendatang.
-        Bergabunglah sebagai anggota, donatur, atau mitra.
-      </p>
-      <div class="hero__actions">
-        <a href="#kontak" class="btn btn--primary">Bergabung Sekarang</a>
-        <a href="#program" class="btn btn--ghost-light">Lihat Program</a>
+    <div class="cta-banner__sil cta-banner__sil--left" aria-hidden="true">
+      <svg viewBox="0 0 200 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 10 L80 45 L55 28 L68 55 L38 48 L62 68 L100 55 L138 68 L162 48 L132 55 L145 28 L120 45 Z" fill="#BF9B45"/>
+        <ellipse cx="100" cy="95" rx="28" ry="35" fill="#BF9B45"/>
+        <path d="M72 130 Q100 125 128 130 L132 210 Q100 218 68 210 Z" fill="#BF9B45"/>
+        <path d="M68 210 Q100 204 132 210 L136 250 Q100 256 64 250 Z" fill="#BF9B45"/>
+        <path d="M64 250 Q100 244 136 250 L140 295 Q100 302 60 295 Z" fill="#BF9B45"/>
+        <path d="M60 295 Q100 288 140 295 L144 345 Q100 352 56 345 Z" fill="#BF9B45"/>
+        <line x1="100" y1="345" x2="100" y2="495" stroke="#BF9B45" stroke-width="3"/>
+        <line x1="82" y1="370" x2="24" y2="480" stroke="#BF9B45" stroke-width="2"/>
+        <line x1="118" y1="370" x2="176" y2="480" stroke="#BF9B45" stroke-width="2"/>
+      </svg>
+    </div>
+
+    <div class="cta-banner__content container">
+      <p class="label label--gold" data-reveal>Bergabung Bersama Kami</p>
+      <h2 class="cta-banner__title" data-reveal>Jadilah Bagian dari <em>Gerakan</em><br/>Pelestarian Wayang</h2>
+      <div class="cta-banner__btns" data-reveal>
+        <a href="#kontak" class="btn btn--primary magnetic">Daftar Keanggotaan</a>
+        <a href="#program" class="btn btn--ghost-light magnetic">Pelajari Program</a>
       </div>
+    </div>
+
+    <div class="cta-banner__sil cta-banner__sil--right" aria-hidden="true">
+      <svg viewBox="0 0 200 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 10 L80 45 L55 28 L68 55 L38 48 L62 68 L100 55 L138 68 L162 48 L132 55 L145 28 L120 45 Z" fill="#BF9B45"/>
+        <ellipse cx="100" cy="95" rx="28" ry="35" fill="#BF9B45"/>
+        <path d="M72 130 Q100 125 128 130 L132 210 Q100 218 68 210 Z" fill="#BF9B45"/>
+        <path d="M68 210 Q100 204 132 210 L136 250 Q100 256 64 250 Z" fill="#BF9B45"/>
+        <path d="M64 250 Q100 244 136 250 L140 295 Q100 302 60 295 Z" fill="#BF9B45"/>
+        <path d="M60 295 Q100 288 140 295 L144 345 Q100 352 56 345 Z" fill="#BF9B45"/>
+        <line x1="100" y1="345" x2="100" y2="495" stroke="#BF9B45" stroke-width="3"/>
+        <line x1="82" y1="370" x2="24" y2="480" stroke="#BF9B45" stroke-width="2"/>
+        <line x1="118" y1="370" x2="176" y2="480" stroke="#BF9B45" stroke-width="2"/>
+      </svg>
     </div>
   </section>
 
-  <!-- KONTAK -->
+  <!-- ===== KONTAK ===== -->
   <section class="kontak" id="kontak">
-    <div class="container kontak__inner">
-      <div class="kontak__info">
-        <p class="section__label">Kontak</p>
-        <h2 class="section__title">Hubungi Kami</h2>
-        <p>Kami siap menjawab pertanyaan dan menjalin kemitraan dengan Anda.</p>
-        <div class="kontak__detail">
-          <div class="kontak__item">
-            <span class="kontak__icon">📍</span>
-            <div>
-              <strong>Alamat</strong>
-              <p>Jl. Merdeka Barat No. 12, Jakarta Pusat 10110, DKI Jakarta</p>
+    <div class="container">
+      <div class="kontak__grid">
+        <div class="kontak__info">
+          <p class="label" data-reveal>Hubungi Kami</p>
+          <h2 class="kontak__title" data-reveal>Mari <em>Berkolaborasi</em><br/>Bersama</h2>
+          <div class="kontak__details">
+            <div class="kontak__detail" data-reveal>
+              <div class="kontak__detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="kontak__detail-label">Alamat</p>
+                <p class="kontak__detail-value">Jl. Pintu I Senayan No. 1, Jakarta 10270</p>
+              </div>
+            </div>
+            <div class="kontak__detail" data-reveal>
+              <div class="kontak__detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.06 6.06l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="kontak__detail-label">Telepon</p>
+                <p class="kontak__detail-value">(021) 574 4957</p>
+              </div>
+            </div>
+            <div class="kontak__detail" data-reveal>
+              <div class="kontak__detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div>
+                <p class="kontak__detail-label">Email</p>
+                <p class="kontak__detail-value">info@senawangi.id</p>
+              </div>
             </div>
           </div>
-          <div class="kontak__item">
-            <span class="kontak__icon">📞</span>
-            <div>
-              <strong>Telepon</strong>
-              <p>(021) 3456-7890</p>
-            </div>
-          </div>
-          <div class="kontak__item">
-            <span class="kontak__icon">✉️</span>
-            <div>
-              <strong>Email</strong>
-              <p>info@senawangi.id</p>
-            </div>
+
+          <div class="kontak__social" data-reveal>
+            <a href="#" class="kontak__social-link magnetic" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="kontak__social-link magnetic" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            </a>
+            <a href="#" class="kontak__social-link magnetic" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#080401"/></svg>
+            </a>
+            <a href="#" class="kontak__social-link magnetic" aria-label="Twitter/X">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
           </div>
         </div>
-        <div class="kontak__sosmed">
-          <a href="#" aria-label="Facebook">FB</a>
-          <a href="#" aria-label="Instagram">IG</a>
-          <a href="#" aria-label="YouTube">YT</a>
-          <a href="#" aria-label="Twitter/X">X</a>
+
+        <div class="kontak__form-wrap" data-reveal>
+          <form class="kontak__form" id="contactForm" novalidate>
+            <div class="form__row">
+              <div class="form__field">
+                <label class="form__label" for="contactName">Nama Lengkap</label>
+                <input class="form__input" type="text" id="contactName" name="name" placeholder="Nama Anda" required />
+              </div>
+              <div class="form__field">
+                <label class="form__label" for="contactEmail">Email</label>
+                <input class="form__input" type="email" id="contactEmail" name="email" placeholder="email@anda.com" required />
+              </div>
+            </div>
+            <div class="form__field">
+              <label class="form__label" for="contactSubject">Keperluan</label>
+              <select class="form__select" id="contactSubject" name="subject">
+                <option value="">Pilih keperluan</option>
+                <option value="keanggotaan">Keanggotaan</option>
+                <option value="kolaborasi">Kolaborasi / Kemitraan</option>
+                <option value="festival">Informasi Festival</option>
+                <option value="media">Media / Pers</option>
+                <option value="lainnya">Lainnya</option>
+              </select>
+            </div>
+            <div class="form__field">
+              <label class="form__label" for="contactMessage">Pesan</label>
+              <textarea class="form__textarea" id="contactMessage" name="message" rows="5" placeholder="Tulis pesan Anda di sini..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full magnetic">Kirim Pesan</button>
+            <div class="form__success" id="formSuccess">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#BF9B45" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+              <p>Pesan berhasil terkirim! Kami akan menghubungi Anda segera.</p>
+            </div>
+          </form>
         </div>
       </div>
-      <form class="kontak__form" onsubmit="handleSubmit(event)">
-        <div class="form__group">
-          <label for="nama">Nama Lengkap</label>
-          <input type="text" id="nama" name="nama" placeholder="Budi Santoso" required />
-        </div>
-        <div class="form__group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="budi@email.com" required />
-        </div>
-        <div class="form__group">
-          <label for="subjek">Subjek</label>
-          <select id="subjek" name="subjek">
-            <option value="">Pilih subjek...</option>
-            <option>Keanggotaan</option>
-            <option>Program & Pelatihan</option>
-            <option>Kemitraan</option>
-            <option>Media & Pers</option>
-            <option>Lainnya</option>
-          </select>
-        </div>
-        <div class="form__group">
-          <label for="pesan">Pesan</label>
-          <textarea id="pesan" name="pesan" rows="4" placeholder="Tulis pesan Anda..." required></textarea>
-        </div>
-        <button type="submit" class="btn btn--primary btn--full">Kirim Pesan</button>
-        <p class="form__success" id="formSuccess">✓ Pesan berhasil dikirim! Kami akan segera merespons.</p>
-      </form>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
-    <div class="container footer__inner">
-      <div class="footer__brand">
-        <a href="#" class="nav__logo">
-          <span class="nav__logo-mark">✦</span>
-          <span>Senawangi</span>
-        </a>
-        <p>Sekretariat Nasional Pewayangan Indonesia<br />Menjaga Jiwa Wayang Nusantara sejak 1975.</p>
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="#" class="nav__logo footer__logo">
+            <svg class="nav__logo-icon" viewBox="0 0 40 60" fill="none">
+              <path d="M20 4 L14 14 L8 8 L13 18 L4 15 L12 22 L20 18 L28 22 L36 15 L27 18 L32 8 L26 14 Z" stroke="#BF9B45" stroke-width="1.2" fill="none"/>
+              <ellipse cx="20" cy="30" rx="7" ry="9" stroke="#BF9B45" stroke-width="1.2" fill="none"/>
+              <path d="M20 28 L24 31 L20 35" stroke="#BF9B45" stroke-width="1" fill="none"/>
+              <rect x="17" y="39" width="6" height="6" stroke="#BF9B45" stroke-width="1" fill="none"/>
+              <path d="M12 45 Q20 43 28 45 L29 55 Q20 57 11 55 Z" stroke="#BF9B45" stroke-width="1.2" fill="none"/>
+              <line x1="20" y1="55" x2="20" y2="60" stroke="#BF9B45" stroke-width="1.5"/>
+            </svg>
+            <span class="nav__logo-text">Senawangi</span>
+          </a>
+          <p class="footer__tagline">Sekretariat Nasional Pewayangan Indonesia — Menjaga Jiwa Wayang untuk Generasi Mendatang.</p>
+        </div>
+
+        <nav class="footer__nav">
+          <div class="footer__nav-col">
+            <h4 class="footer__nav-title">Tentang</h4>
+            <ul>
+              <li><a href="#">Sejarah</a></li>
+              <li><a href="#">Struktur Organisasi</a></li>
+              <li><a href="#">Visi &amp; Misi</a></li>
+              <li><a href="#">Keanggotaan</a></li>
+            </ul>
+          </div>
+          <div class="footer__nav-col">
+            <h4 class="footer__nav-title">Program</h4>
+            <ul>
+              <li><a href="#">Festival Wayang</a></li>
+              <li><a href="#">Pelatihan Dalang</a></li>
+              <li><a href="#">Dokumentasi</a></li>
+              <li><a href="#">Riset &amp; Kajian</a></li>
+            </ul>
+          </div>
+          <div class="footer__nav-col">
+            <h4 class="footer__nav-title">Sumber Daya</h4>
+            <ul>
+              <li><a href="#">Ensiklopedia Wayang</a></li>
+              <li><a href="#">Arsip Digital</a></li>
+              <li><a href="#">Publikasi</a></li>
+              <li><a href="#">Kontak</a></li>
+            </ul>
+          </div>
+        </nav>
       </div>
-      <div class="footer__links">
-        <div class="footer__col">
-          <strong>Organisasi</strong>
-          <ul>
-            <li><a href="#tentang">Tentang Kami</a></li>
-            <li><a href="#program">Program</a></li>
-            <li><a href="#berita">Berita</a></li>
-            <li><a href="#kontak">Kontak</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <strong>Program</strong>
-          <ul>
-            <li><a href="#">Sertifikasi Dalang</a></li>
-            <li><a href="#">Sekolah Dalang</a></li>
-            <li><a href="#">Festival Wayang</a></li>
-            <li><a href="#">Digitalisasi Arsip</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <strong>Sumber Daya</strong>
-          <ul>
-            <li><a href="#">Arsip Digital</a></li>
-            <li><a href="#">Publikasi</a></li>
-            <li><a href="#">Media Kit</a></li>
-            <li><a href="#">Kebijakan Privasi</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <div class="container">
-        <p>© 2025 Senawangi – Sekretariat Nasional Pewayangan Indonesia. Hak cipta dilindungi.</p>
-        <p>Wayang Indonesia diakui sebagai Warisan Budaya Takbenda UNESCO sejak 7 November 2003.</p>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2024 Senawangi — Sekretariat Nasional Pewayangan Indonesia. Hak Cipta Dilindungi.</p>
+        <p class="footer__copy footer__copy--right">Wayang Indonesia — Warisan Budaya Dunia UNESCO sejak 2003</p>
       </div>
     </div>
   </footer>
 
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/SplitText.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
